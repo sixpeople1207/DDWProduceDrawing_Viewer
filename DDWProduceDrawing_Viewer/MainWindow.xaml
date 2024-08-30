@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:DDWProduceDrawing_Viewer"
         mc:Ignorable="d"
         Title="DDWorks Produce Viewer 1.0" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10,10,359,12">
         <Label Name="label" Content="Label" HorizontalAlignment="Left" Margin="86,171,0,0" VerticalAlignment="Top"/>
-        
+     
+            <Grid x:Name="_clientViewGrid" Margin="450,1,-347,1" />
+        <Label Name="lbSpoolDivisionMode" Visibility="Collapsed" FontSize="16" Margin="5" Height="32" VerticalAlignment="Top" />
+            <!--<Button x:Name="btnSpoolDivisionComplete" Content="Division Complete" Height="40" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" FontSize="14" FontWeight="Light" Cursor="Hand"
+             Click="btnSpoolDivisionComplete_Click" Visibility="Collapsed"/>-->
+   
     </Grid>
+    
 </Window>

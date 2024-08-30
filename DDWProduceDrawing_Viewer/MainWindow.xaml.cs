@@ -1,4 +1,5 @@
 ﻿using DINNO.HU3D.Workspace;
+using DINNO.HU3D.WPF.HookUpDesigner;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,17 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using DINNO.HU3D.UI.WPF;
+using DINNO.HU3D.Workspace.Tools;
+using DINNO.DO3D.MEP.Instances;
+using DINNO.DO3D.MEP;
+using DINNO.DO3D.SceneGraph.Graphics.Platform.InputHandler.HUDInputHandler;
+using DINNO.DO3D.SceneGraph.Graphics;
+using DINNO.DO3D.SceneGraph.Graphics.Platform.InputHandler;
+using DINNO.DO3D.SceneGraph.Platform;
+using System.Windows.Threading;
+using DINNO.HU3D.Workspace;
+
 
 namespace DDWProduceDrawing_Viewer
 {
@@ -26,6 +38,7 @@ namespace DDWProduceDrawing_Viewer
     {
         public MainWindow()
         {
+            Window toolWindow = null;
             InitializeComponent();
             string db_path = "C:\\Users\\Dinno\\Downloads\\24.08.05 (H2) ELPGX13_김\\";
             string path = System.IO.Path.GetDirectoryName(db_path);
@@ -42,9 +55,13 @@ namespace DDWProduceDrawing_Viewer
             AppWorkspace a = AppWorkspace.newInstance(projectBase);
             bool b = AppWorkspace.Instance.Open(projectBase.DBFileName);
             
+            AppWorkspace.Instance.LoadData(WorkspaceModuleType.HookupDesigner);
             label.Content = b.ToString();
+            var _sceneViewControl = new MEPSceneViewControlWPF();
+            _sceneViewControl.setController(new MEPHookUpSceneViewController());
+            this._clientViewGrid.Children.Add(_sceneViewControl);
             
 
         }
     }
-}
+    }
