@@ -59,7 +59,7 @@ namespace DDWProduceDrawing_Viewer
             label.Content = b.ToString();
             var _sceneViewControl = new MEPSceneViewControlWPF();
             _sceneViewControl.setController(new MEPHookUpSceneViewController());
-            this._clientViewGrid.Children.Add(_sceneViewControl);
+            this._clientViewGrid.Children.Add(_sceneViewControl);ㅇㅇ
             
 
         }
