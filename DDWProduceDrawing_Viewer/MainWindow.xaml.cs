@@ -121,7 +121,7 @@ namespace DDWProduceDrawing_Viewer
             List<Guid> instances_List = new List<Guid>();
             //_instanceGroupOC = new InstanceGroupOC(); //conn에러
             Guid currentGroup = new Guid();
-            Guid[] instances =  new Guid[_allGroup.Count];
+            Guid[] instances =  new Guid[_allGroup.Count]; //
             foreach (var group in _allGroup)
             {
                 if (group.Value.Contains(buldingName) && group.Value.Contains("진공"))
